@@ -1,0 +1,103 @@
+body{
+  background-color: #F2E2CE;
+  margin: 0;
+  padding: 0;
+}
+
+body h1,h2,h3,h4{
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  font-family: 'Great Vibes', cursive;
+  font-size: 10vw;
+  color: #000;
+}
+
+h2:before{
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 17vw;
+  color: #F2E2CE;
+  content: 'PORTFOLIO';
+  animation: titleChange 5s ease-in 1.5s infinite normal;
+}
+
+@keyframes titleChange {
+  0% {content: "PORTFOLIO"}
+  34% {content: "RUOXI WANG"}
+  67% {content: "王若曦"}
+}
+
+h3{
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 3vw;
+  font-style: normal;
+  color: #000;
+}
+
+h4{
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 2vw;
+  font-style: normal;
+  color: #000;
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.name{
+  position: fixed;
+  left: 5vw;
+  top: 5vh;
+}
+
+.circle{
+  height: 3vh;
+  width:3vh;
+  border: 2px solid black;
+  background-color: #000;
+  border-radius: 50px;
+  position: fixed;
+  right: 8vw;
+  top: 5vh;
+}
+
+.heroPage{
+  background-color: #D9593D;
+  height: 100vh;
+  display: flex;
+  align-items:flex-end;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.mainContainer{
+  padding: 0 15vw 0 17vw;
+}
+
+.introduction{
+  margin: 20vh 0 20vh 0;
+}
+
+.work{
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: dense;
+  grid-column-gap: 2vmin;
+  grid-row-gap: 10vmin; */
+}
+
+.workImg{
+  padding: 20vh;
+  height: 35%;
+  width: 35%;
+}
+
+
+
+#highlight{
+  background-color: #038c8c;
+}
