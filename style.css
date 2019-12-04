@@ -15,10 +15,6 @@ article {
   height: 100vh;
 }
 
-img {
-
-}
-
 /* text in heroPage */
 h1 {
   font-family: 'Raleway', sans-serif;
@@ -84,7 +80,7 @@ a, a:visited {
 }
 
 #myname{
-  margin-top: 50vh;
+  margin-top: 48vh;
   margin-left: -1vmin;
 }
 
@@ -157,10 +153,13 @@ a, a:visited {
 }
 
 .workImg{
-  height: 40%;
+  height: 100%;
   z-index: 2;
+}
+
+.urlPosition{
   position: absolute;
-  transition: 2s;
+  height: 50%;
 }
 
 .title{

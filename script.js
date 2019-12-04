@@ -14,42 +14,47 @@ let myWorks = [{
     "picture_url_hover": "koo.jpg",
     "date": "2019.5",
     "category": "CREATIVE CODING",
-    "work_url": "#"
+    "work_url": "https://editor.p5js.org/undefined/present/R3jsknCZp"
   },
   {
     "title": "Heart Adventure",
     "picture_url_before": "heart_adventure_before.jpg",
     "picture_url_hover": "heart_adventure.png",
     "date": "2018.12",
-    "category": "CREATIVE CODING"
+    "category": "CREATIVE CODING",
+    "work_url": "https://www.openprocessing.org/sketch/633016"
   },
   {
     "title": "NightSeeker",
     "picture_url_before": "nightseeker_before.jpg",
     "picture_url_hover": "nightseeker.png",
     "date": "2019.10",
-    "category": "WEB DESIGN"
+    "category": "WEBSITE DESIGN",
+    "work_url": "https://rosiewang930.github.io/Midterm-Mobile/"
   },
   {
     "title": "Four Myself: Growth",
     "picture_url_before": "city_before.jpg",
     "picture_url_hover": "city.jpg",
     "date": "2019.5",
-    "category": "PHOTOGRAPHY"
+    "category": "PHOTOGRAPHY",
+    "work_url": "https://wang0930rx.tumblr.com/post/189465058694/four-myself-growth-four-season-four-glasses-four"
   },
   {
     "title": "First Day",
     "picture_url_before": "first_day_before.jpg",
     "picture_url_hover": "first_day.png",
     "date": "2018.12",
-    "category": "SHORT FILM"
+    "category": "SHORT FILM",
+    "work_url": "https://www.youtube.com/watch?v=VjWNtw_QIwU"
   },
   {
     "title": "Chess Booklet",
     "picture_url_before": "chess_before.jpg",
     "picture_url_hover": "chess.jpg",
     "date": "2018.11",
-    "category": "GRAPHIC DESIGN"
+    "category": "GRAPHIC DESIGN",
+    "work_url": "https://wang0930rx.tumblr.com/post/189465149319/chess-booklet"
   }
 ]
 
@@ -71,20 +76,33 @@ function applyJSON(incomingJSON) {
   newContentCategory.innerHTML = incomingJSON['category'];
   newContentElement.appendChild(newContentCategory);
 
+
   /// Add image
   let newImage = document.createElement("IMG");
   newImage.classList.add('workImg');
   newImage.setAttribute("data-aos", "fade-up");
   newImage.src = incomingJSON['picture_url_before'];
-  newContentElement.appendChild(newImage);
+  // newContentElement.appendChild(newImage);
+
+  ///Add link
+  let newContentWorkURL = document.createElement("a");
+  newContentWorkURL.href = incomingJSON['work_url'];
+  newContentWorkURL.classList.add('urlPosition');
+  newContentWorkURL.target = "_blank";
+  newContentWorkURL.appendChild(newImage);
+  newContentElement.appendChild(newContentWorkURL);
+
+
 
   let newContentTag;
   let newContentTitle;
   let newContentDate;
+
   newImage.addEventListener("mouseover", function(event) {
     newImage.src = incomingJSON['picture_url_hover'];
-    newImage.style.zIndex = 100;
+    newContentWorkURL.style.zIndex = 100;
     // newImage.style.transition = "all 1s";
+    newContentWorkURL.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
 
 
     newContentTag = document.createElement("div");
@@ -99,32 +117,21 @@ function applyJSON(incomingJSON) {
     newContentDate.innerHTML = incomingJSON['date'];
     newContentTag.appendChild(newContentDate);
 
+
     newContentElement.appendChild(newContentTag);
   });
 
   newImage.addEventListener("mouseout", function(event) {
     newImage.src = incomingJSON['picture_url_before'];
-    newImage.style.zIndex = 0;
+    newContentWorkURL.style.zIndex = 0;
     newContentTitle.style.display = "none";
     newContentDate.style.display = "none";
+    newContentWorkURL.style.boxShadow = "none";
+
   });
 
-  // ///Add title
-  // let newContentTitle = document.createElement("H6");
-  // newContentTitle.classList.add('title');
-  // newContentTitle.innerHTML = incomingJSON['title'];
-  // newContentElement.appendChild(newContentTitle);
-  //
-  // ///Add date
-  // let newContentDate = document.createElement("H6");
-  // newContentDate.classList.add('title');
-  // newContentDate.innerHTML = incomingJSON['date'];
-  // newContentElement.appendChild(newContentDate);
-
   workBlock.appendChild(newContentElement);
-
 }
-
 
 
 let heroTitle = document.getElementById('myname');
@@ -133,7 +140,7 @@ let scrolled = true;
 
 heroTitle.addEventListener("mouseover", function(event) {
   if (scrolled) {
-    var timer = setTimeout("autoScroll()", 2000);
+    var timer = setTimeout("autoScroll()", 2500);
     scrolled = false;
   }
 });
@@ -141,6 +148,5 @@ heroTitle.addEventListener("mouseover", function(event) {
 heroTitle.addEventListener("mouseout", function(event) {});
 
 function autoScroll() {
-  window.scrollBy(1000, 1000);
-  // alert("hi");
+  window.scrollBy(900, 900);
 }
