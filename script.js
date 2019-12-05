@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     duration: 1500,
     easing: 'ease-in-out-back',
     mirror: true,
+    // disable: 'mobile',
   })
 })
 
@@ -45,7 +46,7 @@ let myWorks = [{
     "picture_url_before": "first_day_before.jpg",
     "picture_url_hover": "first_day.png",
     "date": "2018.12",
-    "category": "SHORT FILM",
+    "category": "SHORT VIDEO",
     "work_url": "https://www.youtube.com/watch?v=VjWNtw_QIwU"
   },
   {
@@ -98,24 +99,27 @@ function applyJSON(incomingJSON) {
   let newContentTitle;
   let newContentDate;
 
+  newContentTag = document.createElement("div");
+  newContentTag.classList.add('infoTag');
+  ///Add title
+  newContentTitle = document.createElement("H6");
+  newContentTitle.innerHTML = incomingJSON['title'];
+  newContentTitle.style.display = "none";
+  newContentTag.appendChild(newContentTitle);
+
+  ///Add date
+  newContentDate = document.createElement("H6");
+  newContentDate.innerHTML = incomingJSON['date'];
+  newContentDate.style.display = "none";
+  newContentTag.appendChild(newContentDate);
+
   newImage.addEventListener("mouseover", function(event) {
     newImage.src = incomingJSON['picture_url_hover'];
     newContentWorkURL.style.zIndex = 100;
     // newImage.style.transition = "all 1s";
-    newContentWorkURL.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
-
-
-    newContentTag = document.createElement("div");
-    newContentTag.classList.add('infoTag');
-    ///Add title
-    newContentTitle = document.createElement("H6");
-    newContentTitle.innerHTML = incomingJSON['title'];
-    newContentTag.appendChild(newContentTitle);
-
-    ///Add date
-    newContentDate = document.createElement("H6");
-    newContentDate.innerHTML = incomingJSON['date'];
-    newContentTag.appendChild(newContentDate);
+    newImage.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
+    newContentTitle.style.display = "block";
+    newContentDate.style.display = "block";
 
 
     newContentElement.appendChild(newContentTag);
@@ -126,9 +130,41 @@ function applyJSON(incomingJSON) {
     newContentWorkURL.style.zIndex = 0;
     newContentTitle.style.display = "none";
     newContentDate.style.display = "none";
-    newContentWorkURL.style.boxShadow = "none";
+    newImage.style.boxShadow = "none";
 
   });
+
+
+  var mobileX = window.matchMedia("(max-width: 480px)")
+  mobileChange(mobileX) // Call listener function at run time
+  mobileX.addListener(mobileChange) // Attach listener function on state changes
+
+  function mobileChange(x) {
+    if (x.matches) { // If media query matches
+      newImage.style.display = "none";
+      newContentCategory.addEventListener("click", function(event) {
+        newImage.style.display = "block";
+        newImage.src = incomingJSON['picture_url_hover'];
+        newContentWorkURL.style.textAlign = "center";
+        newContentWorkURL.style.zIndex = 100;
+        newContentElement.style.height = "250px";
+        newContentTitle.style.display = "block";
+        newContentDate.style.display = "block";
+      });
+      newContentCategory.addEventListener("mouseout", function(event) {
+        newImage.style.display = "none";
+        newContentElement.style.height = "30px";
+        newContentTitle.style.display = "none";
+        newContentDate.style.display = "none";
+      });
+    } else {
+      // document.body.style.backgroundColor = "pink";
+      newImage.style.display = "block";
+    }
+  }
+
+
+
 
   workBlock.appendChild(newContentElement);
 }
@@ -148,5 +184,5 @@ heroTitle.addEventListener("mouseover", function(event) {
 heroTitle.addEventListener("mouseout", function(event) {});
 
 function autoScroll() {
-  window.scrollBy(900, 900);
+  window.scrollBy(800, 800);
 }
