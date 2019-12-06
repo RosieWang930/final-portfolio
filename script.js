@@ -15,7 +15,8 @@ let myWorks = [{
     "picture_url_hover": "koo.jpg",
     "date": "2019.5",
     "category": "CREATIVE CODING",
-    "work_url": "https://editor.p5js.org/undefined/present/R3jsknCZp"
+    "work_url": "https://editor.p5js.org/undefined/present/R3jsknCZp",
+    "workNum": "01"
   },
   {
     "title": "Heart Adventure",
@@ -23,7 +24,8 @@ let myWorks = [{
     "picture_url_hover": "heart_adventure.png",
     "date": "2018.12",
     "category": "CREATIVE CODING",
-    "work_url": "https://www.openprocessing.org/sketch/633016"
+    "work_url": "https://www.openprocessing.org/sketch/633016",
+    "workNum": "02"
   },
   {
     "title": "NightSeeker",
@@ -31,7 +33,8 @@ let myWorks = [{
     "picture_url_hover": "nightseeker.png",
     "date": "2019.10",
     "category": "WEBSITE DESIGN",
-    "work_url": "https://rosiewang930.github.io/Midterm-Mobile/"
+    "work_url": "https://rosiewang930.github.io/Midterm-Mobile/",
+    "workNum": "03"
   },
   {
     "title": "Four Myself: Growth",
@@ -39,7 +42,8 @@ let myWorks = [{
     "picture_url_hover": "city.jpg",
     "date": "2019.5",
     "category": "PHOTOGRAPHY",
-    "work_url": "https://wang0930rx.tumblr.com/post/189465058694/four-myself-growth-four-season-four-glasses-four"
+    "work_url": "https://wang0930rx.tumblr.com/post/189465058694/four-myself-growth-four-season-four-glasses-four",
+    "workNum": "04"
   },
   {
     "title": "First Day",
@@ -47,7 +51,8 @@ let myWorks = [{
     "picture_url_hover": "first_day.png",
     "date": "2018.12",
     "category": "SHORT VIDEO",
-    "work_url": "https://www.youtube.com/watch?v=VjWNtw_QIwU"
+    "work_url": "https://www.youtube.com/watch?v=VjWNtw_QIwU",
+    "workNum": "05"
   },
   {
     "title": "Chess Booklet",
@@ -55,7 +60,8 @@ let myWorks = [{
     "picture_url_hover": "chess.jpg",
     "date": "2018.11",
     "category": "GRAPHIC DESIGN",
-    "work_url": "https://wang0930rx.tumblr.com/post/189465149319/chess-booklet"
+    "work_url": "https://wang0930rx.tumblr.com/post/189465149319/chess-booklet",
+    "workNum": "06"
   }
 ]
 
@@ -77,7 +83,6 @@ function applyJSON(incomingJSON) {
   newContentCategory.innerHTML = incomingJSON['category'];
   newContentElement.appendChild(newContentCategory);
 
-
   /// Add image
   let newImage = document.createElement("IMG");
   newImage.classList.add('workImg');
@@ -93,8 +98,7 @@ function applyJSON(incomingJSON) {
   newContentWorkURL.appendChild(newImage);
   newContentElement.appendChild(newContentWorkURL);
 
-
-
+  ///add information tag for each project
   let newContentTag;
   let newContentTitle;
   let newContentDate;
@@ -113,6 +117,10 @@ function applyJSON(incomingJSON) {
   newContentDate.style.display = "none";
   newContentTag.appendChild(newContentDate);
 
+
+
+  ///add hover function on project picture
+  ///the picture will on the front and the infomation tag will appear
   newImage.addEventListener("mouseover", function(event) {
     newImage.src = incomingJSON['picture_url_hover'];
     newContentWorkURL.style.zIndex = 100;
@@ -134,7 +142,8 @@ function applyJSON(incomingJSON) {
 
   });
 
-
+  ///add mobile version javascript
+  ///if click, project picture and infomation tag will appear
   var mobileX = window.matchMedia("(max-width: 480px)")
   mobileChange(mobileX) // Call listener function at run time
   mobileX.addListener(mobileChange) // Attach listener function on state changes
@@ -158,18 +167,16 @@ function applyJSON(incomingJSON) {
         newContentDate.style.display = "none";
       });
     } else {
-      // document.body.style.backgroundColor = "pink";
       newImage.style.display = "block";
     }
   }
 
-
-
-
+  ///append each project to the main work div
   workBlock.appendChild(newContentElement);
 }
 
-
+///add a automation scroll function
+///if curson on the title in the hero page for more than 2.5sec, it will automatically scroll to the next section
 let heroTitle = document.getElementById('myname');
 let heroPicture = document.getElementsByClassName('heropic');
 let scrolled = true;
