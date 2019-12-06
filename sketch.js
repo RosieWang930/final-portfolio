@@ -1,26 +1,47 @@
 let x = 1;
 let y = 1;
+let a = 35;
+let b = 35;
 let easing = 0.3;
-// let originColor = color('rgba(255, 255, 255, 0.2)');
+let targetX, targetY, dx, dy;
+// let cursorChange, oneCursorClick;
 
-function setup(){
+function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke();
 }
 
 function draw() {
   clear();
+  cursorOnWeb();
+  fill(color('rgba(100%, 100%, 100%, 0.5)'));
+  // cursorChange = selectAll('#clickable');
+  // for (let i = 0; i < cursorChange.length; i++) {
+  //   oneCursorClick = cursorChange[i];
+  //   console.log("oneCursorClick");
+  //   oneCursorClick.mouseOver(clickCursor(oneCursorClick));
+  // }
 
-  let targetX = mouseX;
-  let dx = targetX - x;
+
+}
+
+function cursorOnWeb() {
+  targetX = mouseX;
+  dx = targetX - x;
   x += dx * easing;
 
-  let targetY = mouseY;
-  let dy = targetY - y;
+  targetY = mouseY;
+  dy = targetY - y;
   y += dy * easing;
 
-  fill(color('rgba(100%, 100%, 100%, 0.5)'));
-  ellipse(x, y, 35, 35);
-
-  //add hover effect on cursor
+  ellipse(x, y, a, b);
 }
+
+
+//add hover effect on cursor: failed
+// function clickCursor(a) {
+//   var returnfunction = function(event){
+//     ellipse(x, y, 50, 50);
+//   }
+//   return returnfunction;
+// }

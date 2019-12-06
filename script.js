@@ -193,3 +193,9 @@ heroTitle.addEventListener("mouseout", function(event) {});
 function autoScroll() {
   window.scrollBy(800, 800);
 }
+
+let cursorChange = document.getElementById('clickable');
+let canvasPosition = document.getElementsByTagName('canvas');
+cursorChange.addEventListener("mouseover", function(event) {
+  canvasPosition.style.zIndex = 1;
+});

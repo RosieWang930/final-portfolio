@@ -5,6 +5,7 @@ html {
 body {
   background-color: #F2E2CE;
   padding: 7vh 10vw 7vh 10vw;
+  cursor: none;
 }
 
 body, h1, h2, h3, h4, h5, h6, p {
