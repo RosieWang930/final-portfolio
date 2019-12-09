@@ -119,12 +119,9 @@ canvas {
 #myname {
   margin-top: 45vh;
   margin-left: -1vmin;
-}
-
-#myname:hover {
-  /* color: #F2E2CE; */
   -webkit-text-stroke: 1px #F2E2CE;
 }
+
 
 
 .language {
