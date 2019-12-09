@@ -143,24 +143,23 @@ function applyJSON(incomingJSON) {
   });
 
   ///add mobile version javascript
-  ///if click, project picture and infomation tag will appear
   var mobileX = window.matchMedia("(max-width: 480px)");
   mobileChange(mobileX); // Call listener function at run time
   mobileX.addListener(mobileChange); // Attach listener function on state changes
 
+
   function mobileChange(x) {
     newContentTitle.style.display = "block";
     newContentDate.style.display = "block";
-
     let iconSize = document.getElementsByClassName('icon-margin');
-    for(var m=0;m<iconSize.length;m++){
-      iconSize[m].classList.remove('fa-2x');
-      iconSize[m].classList.add('fa-lg');
-    }
-
 
     if (x.matches) { // If media query matches
       newImage.style.display = "block";
+      for(var m=0;m<iconSize.length;m++){
+        iconSize[m].classList.remove('fa-2x');
+        iconSize[m].classList.add('fa-lg');
+      }
+
       newContentCategory.addEventListener("click", function(event) {
         newImage.style.display = "block";
         newImage.src = incomingJSON['picture_url_hover'];
@@ -178,6 +177,11 @@ function applyJSON(incomingJSON) {
       });
     } else {
       newImage.style.display = "block";
+      for(var n=0;n<iconSize.length;n++){
+        iconSize[n].classList.remove('fa-lg');
+        iconSize[n].classList.add('fa-2x');
+      }
+
     }
   }
 
