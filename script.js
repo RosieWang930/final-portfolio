@@ -155,7 +155,7 @@ function applyJSON(incomingJSON) {
 
     if (x.matches) { // If media query matches
       newImage.style.display = "block";
-      for(var m=0;m<iconSize.length;m++){
+      for (var m = 0; m < iconSize.length; m++) {
         iconSize[m].classList.remove('fa-2x');
         iconSize[m].classList.add('fa-lg');
       }
@@ -177,7 +177,7 @@ function applyJSON(incomingJSON) {
       });
     } else {
       newImage.style.display = "block";
-      for(var n=0;n<iconSize.length;n++){
+      for (var n = 0; n < iconSize.length; n++) {
         iconSize[n].classList.remove('fa-lg');
         iconSize[n].classList.add('fa-2x');
       }
@@ -205,7 +205,9 @@ heroTitle.addEventListener("mouseover", function(event) {
 heroTitle.addEventListener("mouseout", function(event) {});
 
 function autoScroll() {
-  window.scrollBy(800, 800);
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+  window.scrollBy(w, h);
 }
 
 let cursorChange = document.getElementById('clickable');
