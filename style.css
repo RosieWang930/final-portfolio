@@ -250,7 +250,7 @@ canvas {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
+    width: 80vw;
   }
 
   #myname, .hello, .nyu {
@@ -295,11 +295,11 @@ canvas {
     font-size: 6vmin;
   }
 
-  #works {}
+
 
   #works article {
     padding-bottom: 30px;
-    height: 100%;
+    height: 40vh;
     position: relative;
   }
 

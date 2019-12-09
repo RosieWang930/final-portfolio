@@ -144,27 +144,37 @@ function applyJSON(incomingJSON) {
 
   ///add mobile version javascript
   ///if click, project picture and infomation tag will appear
-  var mobileX = window.matchMedia("(max-width: 480px)")
-  mobileChange(mobileX) // Call listener function at run time
-  mobileX.addListener(mobileChange) // Attach listener function on state changes
+  var mobileX = window.matchMedia("(max-width: 480px)");
+  mobileChange(mobileX); // Call listener function at run time
+  mobileX.addListener(mobileChange); // Attach listener function on state changes
 
   function mobileChange(x) {
+    newContentTitle.style.display = "block";
+    newContentDate.style.display = "block";
+
+    let iconSize = document.getElementsByClassName('icon-margin');
+    for(var m=0;m<iconSize.length;m++){
+      iconSize[m].classList.remove('fa-2x');
+      iconSize[m].classList.add('fa-lg');
+    }
+
+
     if (x.matches) { // If media query matches
-      newImage.style.display = "none";
+      newImage.style.display = "block";
       newContentCategory.addEventListener("click", function(event) {
         newImage.style.display = "block";
         newImage.src = incomingJSON['picture_url_hover'];
         newContentWorkURL.style.textAlign = "center";
         newContentWorkURL.style.zIndex = 100;
         newContentElement.style.height = "250px";
-        newContentTitle.style.display = "block";
-        newContentDate.style.display = "block";
+        // newContentTitle.style.display = "block";
+        // newContentDate.style.display = "block";
       });
       newContentCategory.addEventListener("mouseout", function(event) {
         newImage.style.display = "none";
         newContentElement.style.height = "30px";
-        newContentTitle.style.display = "none";
-        newContentDate.style.display = "none";
+        // newContentTitle.style.display = "none";
+        // newContentDate.style.display = "none";
       });
     } else {
       newImage.style.display = "block";
