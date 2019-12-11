@@ -16,7 +16,7 @@
 
   <div class="language" data-aos="fade-left">
     <h5><a href="index.html" style="font-size: 3vmin; margin-right: 1vmin;" id="clickable">EN</a></h5>
-    <h5><a href="Chinese.html" style="color: grey;" id="clickable">CH</a></h5>
+    <h5><a href="Chinese.html" style="color: grey;" id="clickable">中</a></h5>
   </div>
 
   <div class="name" data-aos="fade-down" data-aos-anchor=".introduction">
@@ -29,6 +29,11 @@
     <a href="https://github.com/RosieWang930" target="_blank" id="clickable"><i class="fab fa-github fa-2x icon-margin"></i></a>
     <a href="mailto: wang0930rx@gmail.com" target="_blank" id="clickable"><i class="far fa-envelope fa-2x icon-margin"></i></a>
   </div>
+
+  <div class="backtotop" data-aos="fade-right" data-aos-anchor=".introduction">
+    <a href="javascript:" id="return-to-top"><i class="fas fa-chevron-circle-up fa-3x"></i></a>
+  </div>
+
 
   <div class="mainContainer">
     <article class="heroPage">
@@ -43,7 +48,9 @@
     <article class="introduction" data-aos="fade-up">
       <h4>Hi there, I’m a student majoring in Integrated Digital Media at New York University. I wish to become a <span id="highlight">UX designer</span> based in New York in the future.​</h4>
       <form method="get" action="Ruoxi_Wang_Resume.pdf" target="_blank" style="margin-top: 5vh;">
-        <button type="submit" id="clickable" ><h5>Resume</h5></button>
+        <button type="submit" id="clickable">
+          <h5>Resume</h5>
+        </button>
       </form>
     </article>
 
@@ -68,6 +75,12 @@
       $(".heropic").show();
     }, function() {
       $(".heropic").hide();
+    });
+
+    $('#return-to-top').click(function() { // When arrow is clicked
+      $('body,html').animate({
+        scrollTop: 0 // Scroll to top of body
+      }, 300);
     });
   </script>
 </body>

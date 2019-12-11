@@ -197,7 +197,7 @@ let scrolled = true;
 
 heroTitle.addEventListener("mouseover", function(event) {
   if (scrolled) {
-    var timer = setTimeout("autoScroll()", 2500);
+    var timer = setTimeout("autoScroll()", 4000);
     scrolled = false;
   }
 });
