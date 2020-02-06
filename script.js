@@ -62,6 +62,15 @@ let myWorks = [{
     "category": "GRAPHIC DESIGN",
     "work_url": "https://wang0930rx.tumblr.com/post/189465149319/chess-booklet",
     "workNum": "06"
+  },
+  {
+    "title": "Google Design Challenge 2020",
+    "picture_url_before": "PREP_before.jpg",
+    "picture_url_hover": "PREP.jpg",
+    "date": "2020.2",
+    "category": "UX DESIGN",
+    "work_url": "https://docs.google.com/presentation/d/1qtB4pCVALTO4sqNCse1rDrHFaezdauLONIF1FtG-4E8/edit?usp=sharing",
+    "workNum": "07"
   }
 ]
 
