@@ -28,6 +28,15 @@ let myWorks = [{
   //   "workNum": "07"
   // },
   {
+    "title": "Dreamy Bedroom",
+    "picture_url_before": "room_before.jpg",
+    "picture_url_hover": "room.jpg",
+    "date": "2020.3",
+    "category": "3D Modeling",
+    "work_url": "https://wang0930rx.tumblr.com/post/612147228927279104/dreamy-bedroom",
+    "workNum": "07"
+  },
+  {
     "title": "Heart Adventure",
     "picture_url_before": "heart_adventure_before.jpg",
     "picture_url_hover": "heart_adventure.png",
